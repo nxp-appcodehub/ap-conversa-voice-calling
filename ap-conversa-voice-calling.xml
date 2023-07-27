@@ -1,0 +1,22 @@
+<data:item xmlns:data="data" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="data ../../xsd/alp.xsd" id="ap-conversa-voice-calling" type="sw_pack" format="projectfile" name="Conversa Voice Calling">
+    <overview>
+        <![CDATA[This project holds the <a href="https://www.nxp.com/design/software/embedded-software/application-software-pack-conversa-voice-calling-on-i-mx-rt1170:APP-SW-PACK-CONVERSA-VOICE">Conversa Voice Calling App SW Pack</a>. This application software pack enables a complete voice call application over USB using NXP’s i.MX RT1170 crossover MCU and <a href="https://www.nxp.com/design/software/embedded-software/conversa-voice-suite:CONVERSA-VOICE-SUITE">Conversa Voice Suite</a>. <br />This project speeds up the evaluation of Voice over Internet Protocol (VoIP) products and provides sufficient audio quality required to meet the Microsoft Teams specification and receive certification. <br />The main_rt1170 branch contains the conversa voice calling software pack for the i.MX RT1170. To see other available devices, please check the other branches.<br />NOTE: The Conversa library comes with a 10-minute trial timeout.<br />]]>
+    </overview>
+    <toolchains>
+        <toolchain name="mcux"></toolchain>
+    </toolchains>
+    <families>
+        <family name="imxrt"></family>
+    </families>
+    <nxp_compatible_hw>
+        <hw id="MIMXRT1170-EVK"></hw>
+    </nxp_compatible_hw>
+    <peripherals>
+        <peripheral name="dma"></peripheral>
+        <peripheral name="sai"></peripheral>
+        <peripheral name="usb"></peripheral>
+    </peripherals>
+    <categories>
+        <category name="voice"></category>
+    </categories>
+</data:item>
