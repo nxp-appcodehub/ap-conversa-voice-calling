@@ -1,0 +1,450 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ksdk:examples xmlns:ksdk="http://nxp.com/ksdk/2.0/ksdk_manifest_v3.0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://nxp.com/ksdk/2.0/ksdk_manifest_v3.0.xsd manifest.xsd">
+  <externalDefinitions>
+    <definition extID="CMSIS_Include_core_cm.LPC55S69"/>
+    <!--<definition extID="middleware.multicore.mcmgr.lpc55s69.LPC55S69"/>
+    <definition extID="middleware.multicore.mcmgr.LPC55S69"/> 
+    <definition extID="middleware.usb.device_controller_ip3511hs.LPC55S69"/>
+    <definition extID="middleware.usb.phy.LPC55S69"/>
+    <definition extID="middleware.usb.device.controller.driver.LPC55S69"/>
+    <definition extID="middleware.usb.common_header.LPC55S69"/>
+    <definition extID="middleware.usb.device.common_header.LPC55S69"/>
+    <definition extID="middleware.usb.device.audio.external.LPC55S69"/>
+    <definition extID="middleware.usb.device.stack.external.LPC55S69"/>
+    <definition extID="middleware.usb.device.cdc.external.LPC55S69"/> -->
+    <definition extID="cm33_core1_LPC55S69"/>
+    <definition extID="lpcxpresso55s69"/>
+    <definition extID="LPC55S69"/>
+    <definition extID="com.crt.advproject.config.exe.debug"/>
+    <definition extID="com.crt.advproject.config.exe.release"/>
+    <definition extID="mcuxpresso"/>
+    <definition extID="com.nxp.mcuxpresso"/>
+    <definition extID="conversa_voice_calling_core0"/>
+  </externalDefinitions>
+  <example device="LPC55S69" id="conversa_voice_calling_core1" name="conversa_voice_calling_core1" device_core="cm33_core1_LPC55S69" board="lpcxpresso55s69" dependency="CMSIS_Include_core_cm.LPC55S69" linked_projects="conversa_voice_calling_core0" category="appswpacks">
+    <projects>
+      <project type="com.crt.advproject.projecttype.exe" nature="org.eclipse.cdt.core.cnature"/>
+    </projects>
+    <memory>
+      <memoryBlock addr="00080000" size="0001D800" type="Flash" access="RW" id="Flash_00.lpc55_conversaVoiceCall_swPack_Core1" name="Flash_00"/>
+      <memoryBlock addr="20030000" size="0000FFF0" type="RAM" access="RO" id="Ram1.lpc55_conversaVoiceCall_swPack_Core1" name="Ram1"/>
+      <memoryBlock addr="2003FFF0" size="00000010" type="RAM" access="RO" id="RamControlBlock.lpc55_conversaVoiceCall_swPack_Core1" name="RamControlBlock"/>
+      <memoryBlock addr="40100000" size="00004000" type="RAM" access="RO" id="USB_RAM.lpc55_conversaVoiceCall_swPack_Core1" name="USB_RAM"/>
+      <memoryBlock addr="04000000" size="00008000" type="RAM" access="RO" id="SRAMX.lpc55_conversaVoiceCall_swPack_Core1" name="SRAMX"/>
+    </memory>
+    <toolchainSettings>
+      <toolchainSetting id_refs="com.nxp.mcuxpresso">
+        <buildConfigurations>
+          <buildConfiguration instance_of="com.nxp.mcuxpresso.ide.build_config.debug" id="com.nxp.mcuxpresso.ide.build_config.debug" name="Debug">
+            <description>Debug build</description>
+          </buildConfiguration>
+          <buildConfiguration instance_of="com.nxp.mcuxpresso.ide.build_config.release" id="com.nxp.mcuxpresso.ide.build_config.release" name="Release">
+            <description>Release build</description>
+          </buildConfiguration>
+        </buildConfigurations>
+        <buildSteps>
+          <postBuildStep build_configs="com.nxp.mcuxpresso.ide.build_config.release com.nxp.mcuxpresso.ide.build_config.debug">arm-none-eabi-size "${BuildArtifactFileName}" ; # arm-none-eabi-objcopy -v -O binary "${BuildArtifactFileName}" "${BuildArtifactFileBaseName}.bin" ; # checksum -p ${TargetChip} -d "${BuildArtifactFileBaseName}.bin"; </postBuildStep>
+        </buildSteps>
+        <option id="gnu.cpp.compiler.option.preprocessor.def" type="stringList" build_configs="com.nxp.mcuxpresso.ide.build_config.release com.nxp.mcuxpresso.ide.build_config.debug">
+          <value>__MULTICORE_M33SLAVE</value>
+        </option>
+	      <option id="com.crt.advproject.cpp.prefixmap" type="string" build_configs="com.nxp.mcuxpresso.ide.build_config.release com.nxp.mcuxpresso.ide.build_config.debug">
+          <value>"$(&lt;D)/"=</value>
+        </option>
+        <option id="com.crt.advproject.c.misc.dialect" type="enum" build_configs="com.nxp.mcuxpresso.ide.build_config.release com.nxp.mcuxpresso.ide.build_config.debug">
+          <value>com.crt.advproject.misc.dialect.gnu99</value>
+        </option>
+        <option id="gnu.c.compiler.option.preprocessor.def.symbols" type="stringList" build_configs="com.nxp.mcuxpresso.ide.build_config.release com.nxp.mcuxpresso.ide.build_config.debug">
+          <value>__MCUXPRESSO</value>
+          <value>__MULTICORE_M33SLAVE</value>
+          <value>__REDLIB_</value>
+          <value>__SEMIHOST_HARDFAULT_DISABLE</value>
+          <value>__USE_CMSIS</value>
+          <value>_DEBUG</value>
+          <value>BOARD_USE_CODEC</value>
+          <value>CODEC_WM8904_ENABLE</value>
+          <value>CONVERSA_PRESENT</value>
+          <value>CORE1</value>
+          <value>CPU_LPC55S69JBD100</value>
+          <value>CPU_LPC55S69JBD100_cm33</value>
+          <value>CPU_LPC55S69JBD100_cm33_core1</value>
+          <value>CPU_LPC55S69JBD100_cm33_core1_nodsp</value>
+          <value>CR_INTEGER_PRINTF</value>
+          <value>DEBUG_CONSOLE_RX_ENABLE=1</value>
+          <value>DEBUG_CONSOLE_TRANSFER_NON_BLOCKING</value>
+          <value>FSL_OSA_BM_TASK_ENABLE=0</value>
+          <value>FSL_OSA_BM_TIMER_CONFIG=0</value>
+          <value>HAL_AUDIO_ISR_PRIORITY=0</value>
+          <value>MCMGR_HANDLE_EXCEPTIONS=1</value>
+          <value>MCUXPRESSO_SDK</value>
+          <value>MIPS_MEASURE_GPIO</value>
+          <value>MULTICORE_APP=1</value>
+          <value>NDEBUG</value>
+          <value>PRINT_FLOAT_ENABLE=0</value>
+          <value>RX_PATH_PRESENT=1</value>
+          <value>SDK_DEBUGCONSOLE=1</value>
+          <value>SDK_I2C_BASED_COMPONENT_USED=1</value>
+          <value>SDK_SECONDARY_CORE</value>
+          <value>SERIAL_PORT_TYPE_UART=1</value>
+          <value>SHELL_COMMAND_PRESENT</value>
+          <value>USB_STACK_BM</value>
+          <value>USB_STACK_USE_DEDICATED_RAM=1</value>
+        </option>
+        <option id="com.crt.advproject.gcc.exe.release.option.debugging.level" type="enum" build_configs="com.nxp.mcuxpresso.ide.build_config.release com.nxp.mcuxpresso.ide.build_config.debug">
+          <value>gnu.c.debugging.level.none</value>
+        </option>
+        <option id="gnu.c.compiler.option.warnings.allwarn" type="boolean" build_configs="com.nxp.mcuxpresso.ide.build_config.release com.nxp.mcuxpresso.ide.build_config.debug">
+          <value>false</value>
+        </option>
+        <option id="gnu.c.compiler.option.misc.other" type="string" build_configs="com.nxp.mcuxpresso.ide.build_config.release com.nxp.mcuxpresso.ide.build_config.debug">
+          <value>-mcpu=cortex-m33+nodsp -c -ffunction-sections -fdata-sections -ffreestanding -fno-builtin</value>
+        </option>
+        <option id="com.crt.advproject.gcc.prefixmap" type="string" build_configs="com.nxp.mcuxpresso.ide.build_config.release com.nxp.mcuxpresso.ide.build_config.debug">
+          <value>"$(&lt;D)/"=</value>
+        </option>
+        <option id="gnu.both.asm.option.flags.crt" type="string" build_configs="com.nxp.mcuxpresso.ide.build_config.release com.nxp.mcuxpresso.ide.build_config.debug">
+          <value>-c -x assembler-with-cpp -D__REDLIB__ -D__MULTICORE_M33SLAVE</value>
+        </option>
+        <option id="gnu.cpp.link.option.libs" type="stringList" build_configs="com.nxp.mcuxpresso.ide.build_config.release com.nxp.mcuxpresso.ide.build_config.debug"/>
+        <option id="gnu.cpp.link.option.paths" type="stringList" build_configs="com.nxp.mcuxpresso.ide.build_config.release com.nxp.mcuxpresso.ide.build_config.debug"/>
+        <option id="gnu.cpp.link.option.other" type="stringList" build_configs="com.nxp.mcuxpresso.ide.build_config.release com.nxp.mcuxpresso.ide.build_config.debug"/>
+        <option id="com.crt.advproject.link.cpp.lto" type="boolean" build_configs="com.nxp.mcuxpresso.ide.build_config.release com.nxp.mcuxpresso.ide.build_config.debug">
+          <value>false</value>
+        </option>
+        <option id="com.crt.advproject.link.cpp.nanofloat" type="boolean" build_configs="com.nxp.mcuxpresso.ide.build_config.release com.nxp.mcuxpresso.ide.build_config.debug">
+          <value>false</value>
+        </option>
+        <option id="com.crt.advproject.link.cpp.nanofloat.scanf" type="boolean" build_configs="com.nxp.mcuxpresso.ide.build_config.release com.nxp.mcuxpresso.ide.build_config.debug">
+          <value>false</value>
+        </option>
+        <option id="com.crt.advproject.link.memory.sections.cpp" type="stringList" build_configs="com.nxp.mcuxpresso.ide.build_config.release com.nxp.mcuxpresso.ide.build_config.debug"/>
+        <option id="gnu.c.link.option.libs" type="stringList" build_configs="com.nxp.mcuxpresso.ide.build_config.release com.nxp.mcuxpresso.ide.build_config.debug">
+          <value>SSRC_libMaker</value>
+        </option>
+        <option id="gnu.c.link.option.paths" type="stringList" build_configs="com.nxp.mcuxpresso.ide.build_config.release com.nxp.mcuxpresso.ide.build_config.debug">
+          <value>"${SDK_2_x_LPC55S69_EVK_APPSWPACKS_CONVERSA_VOICE_CALLING}/examples/conversa_voice_calling/mcu_app/lpc55S69/core1/Lib"</value>
+        </option>
+        <option id="gnu.c.link.option.other" type="stringList" build_configs="com.nxp.mcuxpresso.ide.build_config.release com.nxp.mcuxpresso.ide.build_config.debug">
+          <value>-Map="${BuildArtifactFileBaseName}.map"</value>
+          <value>--gc-sections</value>
+          <value>-print-memory-usage</value>
+          <value>--sort-section=alignment</value>
+          <value>--cref</value>
+        </option>
+        <option id="com.crt.advproject.link.gcc.lto" type="boolean" build_configs="com.nxp.mcuxpresso.ide.build_config.release com.nxp.mcuxpresso.ide.build_config.debug">
+          <value>false</value>
+        </option>
+        <option id="com.crt.advproject.link.gcc.nanofloat" type="boolean" build_configs="com.nxp.mcuxpresso.ide.build_config.release com.nxp.mcuxpresso.ide.build_config.debug">
+          <value>false</value>
+        </option>
+        <option id="com.crt.advproject.link.gcc.nanofloat.scanf" type="boolean" build_configs="com.nxp.mcuxpresso.ide.build_config.release com.nxp.mcuxpresso.ide.build_config.debug">
+          <value>false</value>
+        </option>
+        <option id="com.crt.advproject.link.memory.load.image" type="string" build_configs="com.nxp.mcuxpresso.ide.build_config.release com.nxp.mcuxpresso.ide.build_config.debug">
+          <value>false;</value>
+        </option>
+        <option id="com.crt.advproject.link.memory.heapAndStack" type="string" build_configs="com.nxp.mcuxpresso.ide.build_config.release com.nxp.mcuxpresso.ide.build_config.debug">
+          <value>&amp;Heap:USB_RAM;Post Data;0x800&amp;Stack:Ram1;End;0x800</value>
+        </option>
+        <option id="com.crt.advproject.link.memory.data" type="string" build_configs="com.nxp.mcuxpresso.ide.build_config.release com.nxp.mcuxpresso.ide.build_config.debug">
+          <value>Default</value>
+        </option>
+        <option id="com.crt.advproject.link.memory.sections" type="stringList" build_configs="com.nxp.mcuxpresso.ide.build_config.release com.nxp.mcuxpresso.ide.build_config.debug">
+          <value>isd=*(.data.$SRAM_ControlBlock);region=RamControlBlock;type=.data</value>
+        </option>
+        <option id="com.crt.advproject.link.gcc.multicore.slave" type="string">
+          <value>M33SLAVE</value>
+        </option>    
+      </toolchainSetting>
+    </toolchainSettings>
+    <debug_configurations>
+      <debug_configuration id_refs="com.crt.advproject.config.exe.debug com.crt.advproject.config.exe.release">
+        <drivers>
+          <driver id_refs="Flash_00.lpc55_conversaVoiceCall_swPack_Core1">
+            <driverBinary path="../../../../../devices/LPC55S69/mcuxpresso" type="binary">
+              <files mask="LPC55xx.cfx"/>
+            </driverBinary>
+          </driver>
+        </drivers>
+      </debug_configuration>
+    </debug_configurations>
+    <include_paths>
+      <include_path path="../core0/conversa/tuning_parameters_files" project_relative_path="lpc55s69_appswpacks_conversa_voice_calling_core0/conversa/tuning_parameters_files" type="c_include"/>
+      <include_path path="../core0/conversa/tuning_parameters_files/swp16k_LPC55S69" project_relative_path="lpc55s69_appswpacks_conversa_voice_calling_core0/conversa/tuning_parameters_files/swp16k_LPC55S69" type="c_include"/>
+      <include_path path="../core0/conversa/rdsp_utilities_public/include" project_relative_path="lpc55s69_appswpacks_conversa_voice_calling_core0/conversa/rdsp_utilities_public/include" type="c_include"/>
+      <include_path path="board" project_relative_path="board" type="c_include"/>
+      <include_path path="CMSIS" project_relative_path="CMSIS" type="c_include"/>
+      <include_path path="codec" project_relative_path="codec" type="c_include"/>
+      <include_path path="codec/port" project_relative_path="codec/port" type="c_include"/>
+      <include_path path="codec/port/wm8904" project_relative_path="codec/port/wm8904" type="c_include"/>
+      <include_path path="component/audio" project_relative_path="component/audio" type="c_include"/>
+      <include_path path="component/i2c" project_relative_path="component/i2c" type="c_include"/>
+      <include_path path="component/lists" project_relative_path="component/lists" type="c_include"/>
+      <include_path path="component/osa" project_relative_path="component/osa" type="c_include"/>
+      <include_path path="component/serial_manager" project_relative_path="component/serial_manager" type="c_include"/>
+      <include_path path="component/uart" project_relative_path="component/uart" type="c_include"/>
+      <include_path path="device" project_relative_path="device" type="c_include"/>
+      <include_path path="doc" project_relative_path="doc" type="c_include"/>
+      <include_path path="drivers" project_relative_path="drivers" type="c_include"/>
+      <include_path path="Lib" project_relative_path="Lib" type="c_include"/>
+      <include_path path="mcmgr" project_relative_path="mcmgr" type="c_include"/>
+      <include_path path="mcmgr_local" project_relative_path="mcmgr_local" type="c_include"/>
+      <include_path path="platform" project_relative_path="platform" type="c_include"/>
+      <include_path path="source" project_relative_path="source" type="c_include"/>
+      <include_path path="source/audio" project_relative_path="source/audio" type="c_include"/>
+      <include_path path="source/audioApp" project_relative_path="source/audioApp" type="c_include"/>
+      <include_path path="source/audioApp/audioApp_LPC55S69_CFG1" project_relative_path="source/audioApp/audioApp_LPC55S69_CFG1" type="c_include"/>
+      <include_path path="source/commandShell" project_relative_path="source/commandShell" type="c_include"/>
+      <include_path path="source/commandShell/commandShell_LPC55S69_CFG1" project_relative_path="source/commandShell/commandShell_LPC55S69_CFG1" type="c_include"/>
+      <include_path path="source/init" project_relative_path="source/init" type="c_include"/>
+      <include_path path="source/init/init_LPC55S69_CFG1" project_relative_path="source/init/init_LPC55S69_CFG1" type="c_include"/>
+      <include_path path="source/tools" project_relative_path="source/tools" type="c_include"/>
+      <include_path path="source/tools/toolsSSRC" project_relative_path="source/tools/toolsSSRC" type="c_include"/>
+      <include_path path="source/USBAudioLineOutput" project_relative_path="source/USBAudioLineOutput" type="c_include"/>
+      <include_path path="startup" project_relative_path="startup" type="c_include"/>
+      <include_path path="usb/device/class" project_relative_path="usb/device/class" type="c_include"/>
+      <include_path path="usb/device/class/audio" project_relative_path="usb/device/class/audio" type="c_include"/>
+      <include_path path="usb/device/class/cdc" project_relative_path="usb/device/class/cdc" type="c_include"/>
+      <include_path path="usb/device/include" project_relative_path="usb/device/include" type="c_include"/>
+      <include_path path="usb/device/source" project_relative_path="usb/device/source" type="c_include"/>
+      <include_path path="usb/device/source/lpcip3511" project_relative_path="usb/device/source/lpcip3511" type="c_include"/>
+      <include_path path="usb/include" project_relative_path="usb/include" type="c_include"/>
+      <include_path path="usb/phy" project_relative_path="usb/phy" type="c_include"/>
+      <include_path path="utilities" project_relative_path="utilities" type="c_include"/>
+    </include_paths>
+    <source path="./board" project_relative_path="board" type="src">
+      <files mask="board.c"/>
+      <files mask="board.h"/>
+      <files mask="clock_config.c"/>
+      <files mask="clock_config.h"/>
+      <files mask="pin_mux.c"/>
+      <files mask="pin_mux.h"/>
+    </source>
+    <source path="../../../../../core/CMSIS/Core/Include" project_relative_path="CMSIS" type="src">
+      <files mask="cmsis_armcc.h"/>
+      <files mask="cmsis_armclang.h"/>
+      <files mask="cmsis_armclang_ltm.h"/>
+      <files mask="cmsis_compiler.h"/>
+      <files mask="cmsis_gcc.h"/>
+      <files mask="cmsis_iccarm.h"/>
+      <files mask="cmsis_version.h"/>
+      <files mask="core_cm33.h"/>
+      <files mask="mpu_armv8.h"/>
+      <files mask="tz_context.h"/>
+    </source>
+    <source path="./codec" project_relative_path="codec" type="src">
+      <files mask="fsl_codec_common.c"/>
+      <files mask="fsl_codec_common.h"/>
+      <files mask="fsl_codec_i2c.c"/>
+      <files mask="fsl_codec_i2c.h"/>
+      <files mask="fsl_wm8904.c"/>
+      <files mask="fsl_wm8904.h"/>
+    </source>
+    <source path="./codec/port" project_relative_path="codec/port" type="src">
+      <files mask="fsl_codec_adapter.h"/>
+    </source>
+    <source path="./codec/port/wm8904" project_relative_path="codec/port/wm8904" type="src">
+      <files mask="fsl_codec_wm8904_adapter.c"/>
+      <files mask="fsl_codec_wm8904_adapter.h"/>
+    </source>
+    <source path="./component/audio" project_relative_path="component/audio" type="src">
+      <files mask="fsl_adapter_audio.h"/>
+      <files mask="fsl_adapter_flexcomm_i2s.c"/>
+    </source>
+    <source path="./component/i2c" project_relative_path="component/i2c" type="src">
+      <files mask="fsl_adapter_i2c.h"/>
+      <files mask="fsl_adapter_flexcomm_i2c.c"/>
+    </source>
+    <source path="./component/lists" project_relative_path="component/lists" type="src">
+      <files mask="fsl_component_generic_list.h"/>
+      <files mask="fsl_component_generic_list.c"/>
+    </source>
+    <source path="./component/osa" project_relative_path="component/osa" type="src">
+      <files mask="fsl_os_abstraction.h"/>
+      <files mask="fsl_os_abstraction_bm.c"/>
+      <files mask="fsl_os_abstraction_bm.h"/>
+      <files mask="fsl_os_abstraction_config.h"/>
+    </source>
+    <source path="./component/serial_manager" project_relative_path="component/serial_manager" type="src">
+      <files mask="fsl_component_serial_manager.c"/>
+      <files mask="fsl_component_serial_manager.h"/>
+      <files mask="fsl_component_serial_port_internal.h"/>
+      <files mask="fsl_component_serial_port_uart.c"/>
+      <files mask="fsl_component_serial_port_uart.h"/>
+    </source>
+    <source path="./component/uart" project_relative_path="component/uart" type="src">
+      <files mask="fsl_adapter_uart.h"/>
+      <files mask="fsl_adapter_usart.c"/>
+    </source>
+    <source path="./device" project_relative_path="device" type="src">
+      <files mask="fsl_device_registers.h"/>
+      <files mask="LPC55S69_cm33_core1.h"/>
+      <files mask="LPC55S69_cm33_core1_features.h"/>
+      <files mask="system_LPC55S69_cm33_core1.c"/>
+      <files mask="system_LPC55S69_cm33_core1.h"/>
+    </source>
+    <source path="./doc" project_relative_path="doc" type="src">
+      <files mask="readme.txt"/>
+    </source>
+    <source path="./drivers" project_relative_path="drivers" type="src">
+      <files mask="fsl_clock.h"/>
+      <files mask="fsl_clock.c"/>
+      <files mask="fsl_common.h"/>
+      <files mask="fsl_common.c"/>
+      <files mask="fsl_common_arm.h"/>
+      <files mask="fsl_common_arm.c"/>
+      <files mask="fsl_crc.h"/>
+      <files mask="fsl_crc.c"/>
+      <files mask="fsl_ctimer.h"/>
+      <files mask="fsl_ctimer.c"/>
+      <files mask="fsl_dma.h"/>
+      <files mask="fsl_dma.c"/>
+      <files mask="fsl_flexcomm.h"/>
+      <files mask="fsl_flexcomm.c"/>
+      <files mask="fsl_gint.h"/>
+      <files mask="fsl_gint.c"/>
+      <files mask="fsl_gpio.h"/>
+      <files mask="fsl_gpio.c"/>
+      <files mask="fsl_i2c.h"/>
+      <files mask="fsl_i2c.c"/>
+      <files mask="fsl_i2s.h"/>
+      <files mask="fsl_i2s.c"/>
+      <files mask="fsl_i2s_dma.h"/>
+      <files mask="fsl_i2s_dma.c"/>
+      <files mask="fsl_iocon.h"/>
+      <files mask="fsl_mailbox.h"/>
+      <files mask="fsl_power.h"/>
+      <files mask="fsl_power.c"/>
+      <files mask="fsl_reset.h"/>
+      <files mask="fsl_reset.c"/>
+      <files mask="fsl_sysctl.h"/>
+      <files mask="fsl_sysctl.c"/>
+      <files mask="fsl_usart.h"/>
+      <files mask="fsl_usart.c"/>
+    </source>
+    <source path="./Lib" project_relative_path="Lib" type="src">
+      <files mask="libSSRC_libMaker.a"/>
+    </source>
+    <source path="./mcmgr" project_relative_path="mcmgr" type="src">
+      <files mask="mcmgr.h"/>
+      <files mask="mcmgr.c"/>
+      <files mask="mcmgr_internal_core_api.h"/>
+      <files mask="mcmgr_internal_core_api_lpc55s69.c"/>
+    </source>
+    <source path="./mcmgr_local" project_relative_path="mcmgr_local" type="src">
+      <files mask="Core1MCMGR.c"/>
+      <files mask="Core1MCMGR.h"/>
+    </source>
+    <source path="./platform" project_relative_path="platform" type="src">
+      <files mask="PL_platformTypes_LPC55S69.h"/>
+      <files mask="PL_platformTypes.h"/>
+    </source>
+    <source path="./source/audio" project_relative_path="source/audio" type="src">
+      <files mask="audio.h"/>
+      <files mask="audioTxRxProcess.c"/>
+      <files mask="audioTxRxProcess.h"/>
+    </source>
+    <source path="./source/audioApp/audioApp_LPC55S69_CFG1" project_relative_path="source/audioApp/audioApp_LPC55S69_CFG1" type="src">
+      <files mask="appGlobal_platform.h"/>
+    </source>
+    <source path="./source/audioApp" project_relative_path="source/audioApp" type="src">
+      <files mask="appGlobal.h"/>
+      <files mask="IRQ_callBack_I2S.c"/>
+      <files mask="IRQ_callBack.h"/>
+    </source>
+    <source path="./source/commandShell/commandShell_LPC55S69_CFG1" project_relative_path="source/commandShell/commandShell_LPC55S69_CFG1" type="src">
+      <files mask="commandShell_LPC55S69_CFG1.c"/>
+      <files mask="commandShell_LPC55S69_CFG1.h"/>
+      <files mask="commandShell_txRxPathDefinition_LPC55S69.c"/>
+    </source>
+    <source path="./source/commandShell" project_relative_path="source/commandShell" type="src">
+      <files mask="commandShell_reset.c"/>
+      <files mask="commandShell_version.c"/>
+    </source>
+    <source path="./source/init/init_LPC55S69_CFG1" project_relative_path="source/init/init_LPC55S69_CFG1" type="src">
+      <files mask="initAudioRxPathHw_LPC55S69EVK_CFG1.c"/>
+      <files mask="initAudioTxPathHw_LPC55S69EVK_CFG1.c"/>
+      <files mask="initBoardClockAndPin_LPC55S69_CFG1.c"/>
+      <files mask="initCodecWM8904.c"/>
+      <files mask="initStartAudioCapture_LPC55S69EVK_CFG1.c"/>
+    </source>
+    <source path="./source/init" project_relative_path="source/init" type="src">
+      <files mask="init.h"/>
+      <files mask="initAudioUseCase.c"/>
+    </source>
+    <source path="./source/tools/toolsSSRC" project_relative_path="source/tools/toolsSSRC" type="src">
+      <files mask="LVC_Types.h"/>
+      <files mask="SSRC.h"/>
+    </source>
+    <source path="./source/tools" project_relative_path="source/tools" type="src">
+      <files mask="tools.h"/>
+      <files mask="toolsCircularBuffer.c"/>
+      <files mask="toolsCRC.c"/>
+    </source>
+    <source path="./source/USBAudioLineOutput" project_relative_path="source/USBAudioLineOutput" type="src">
+      <files mask="usb_audio_config.h"/>
+      <files mask="usb_audio_unified.c"/>   
+      <files mask="usb_audio_unified.h"/>
+      <files mask="usb_device_config.h"/>
+      <files mask="usb_device_descriptor.c"/>
+      <files mask="usb_device_descriptor.h"/>
+      <files mask="usb_init.c"/>
+      <files mask="usb_init.h"/>
+      <files mask="virtual_com.c"/>
+      <files mask="virtual_com.h"/>
+    </source>
+    <source path="./source" project_relative_path="source" type="src">
+      <files mask="Main.c"/>
+      <files mask="semihost_hardfault.c"/>
+    </source>
+    <source path="./startup" project_relative_path="startup" type="src">
+      <files mask="boot_multicore_slave.c"/>
+      <files mask="boot_multicore_slave.h"/>
+      <files mask="startup_lpc55s69_cm33_core1.c"/>
+    </source>
+    <source path="./usb/device/class" project_relative_path="usb/device/class" type="src">
+      <files mask="usb_device_class.c"/>
+      <files mask="usb_device_class.h"/>
+    </source>
+    <source path="./usb/device/class/audio" project_relative_path="usb/device/class/audio" type="src">
+      <files mask="usb_device_audio.c"/>
+      <files mask="usb_device_audio.h"/>
+    </source>
+    <source path="./usb/device/class/cdc" project_relative_path="usb/device/class/cdc" type="src">
+      <files mask="usb_device_cdc_acm.c"/>
+      <files mask="usb_device_cdc_acm.h"/>
+    </source>
+    <source path="./usb/device/include" project_relative_path="usb/device/include" type="src">
+      <files mask="usb_device.h"/>
+    </source>
+    <source path="./usb/device/source" project_relative_path="usb/device/source" type="src">
+      <files mask="usb_device_dci.c"/>
+      <files mask="usb_device_dci.h"/>
+      <files mask="usb_device_ch9.c"/>
+      <files mask="usb_device_ch9.h"/>
+    </source>
+    <source path="./usb/device/source/lpcip3511" project_relative_path="usb/device/source/lpcip3511" type="src">
+      <files mask="usb_device_lpcip3511.c"/>
+      <files mask="usb_device_lpcip3511.h"/>
+    </source>
+    <source path="./usb/include" project_relative_path="usb/include" type="src">
+      <files mask="usb.h"/>
+      <files mask="usb_misc.h"/>
+      <files mask="usb_spec.h"/>
+    </source>
+    <source path="./usb/phy" project_relative_path="usb/phy" type="src">
+      <files mask="usb_phy.c"/>
+      <files mask="usb_phy.h"/>
+    </source>
+    <source path="./utilities" project_relative_path="utilities" type="src">
+      <files mask="fsl_assert.c"/>
+      <files mask="fsl_debug_console.c"/>
+      <files mask="fsl_debug_console.h"/>
+      <files mask="fsl_debug_console_conf.h"/>
+      <files mask="fsl_shell.c"/>
+      <files mask="fsl_shell.h"/>
+      <files mask="fsl_str.c"/>
+      <files mask="fsl_str.h"/>
+    </source>
+  </example>
+</ksdk:examples>
