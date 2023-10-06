@@ -173,7 +173,6 @@
       <include_path path="../core0/conversa/tuning_parameters_files/swp16k_LPC55S69" project_relative_path="lpc55s69_appswpacks_conversa_voice_calling_core0/conversa/tuning_parameters_files/swp16k_LPC55S69" type="c_include"/>
       <include_path path="../core0/conversa/rdsp_utilities_public/include" project_relative_path="lpc55s69_appswpacks_conversa_voice_calling_core0/conversa/rdsp_utilities_public/include" type="c_include"/>
       <include_path path="board" project_relative_path="board" type="c_include"/>
-      <include_path path="CMSIS" project_relative_path="CMSIS" type="c_include"/>
       <include_path path="codec" project_relative_path="codec" type="c_include"/>
       <include_path path="codec/port" project_relative_path="codec/port" type="c_include"/>
       <include_path path="codec/port/wm8904" project_relative_path="codec/port/wm8904" type="c_include"/>

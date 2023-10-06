@@ -24,8 +24,8 @@ This project holds the <a href="https://www.nxp.com/design/software/embedded-so
 8. [Release Notes](#step8)
 
 ## 1. Resources<a name="step1"></a>
-* [Application Note]() - Covers technical details of the software pack.
-* [Lab Guide]() and [Video Walkthrough]() - Walks you through downloading, importing, and running the software pack.
+* [Application Note 13976](https://www.nxp.com/doc/AN13976) - Covers technical details of the software pack.
+* [Lab Guide](https://www.nxp.com/doc/AN13976) and [Video Walkthrough](https://www.nxp.com/design/training/conversa-voice-calling-on-lpc55s69-mcus:TIP-CONVERSA-VOICE-CALLING-LPC55S69) - Walks you through downloading, importing, and running the software pack.
 * [Conversa Voice Suite User's Guide](https://www.nxp.com/webapp/Download?colCode=CVSUG) - Provides useful information about the Conversa Voice Suite library and covers technical information about the Conversa Tuning Tool.
 
 ## 2. Software<a name="step2"></a>
@@ -50,10 +50,10 @@ cd appswpacks_conversa_voice_calling
 west update
 ```
 
-You can find more information about setup the conversa voice calling application software pack in the Audio Lab Guides included in the [AN]().
+You can find more information about setup the conversa voice calling application software pack in the Audio Lab Guides included in the [AN13976](https://www.nxp.com/doc/AN13976).
 
 ### 4.2 Build and Run the Application
-To build and run the application, please refer to the chapter 5. Audio Lab Guides within the AN.
+To build and run the application, please refer to the chapter 5. Audio Lab Guides within the AN13976.
 
 ## 5. Results<a name="step5"></a>
 

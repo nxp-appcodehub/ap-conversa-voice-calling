@@ -178,8 +178,6 @@
       <include_path path="../core1/source/tools" project_relative_path="lpc55s69_appswpacks_conversa_voice_calling_core1/source/tools" type="c_include"/>
       <include_path path="../core1/source/audioApp" project_relative_path="lpc55s69_appswpacks_conversa_voice_calling_core1/source/audioApp" type="c_include"/>
       <include_path path="board" project_relative_path="board" type="c_include"/>
-      <include_path path="CMSIS" project_relative_path="CMSIS" type="c_include"/>
-      <include_path path="CMSIS/dsp" project_relative_path="CMSIS/dsp" type="c_include"/>
       <include_path path="component/lists" project_relative_path="component/lists" type="c_include"/>
       <include_path path="component/uart" project_relative_path="component/uart" type="c_include"/>
       <include_path path="conversa/lib" project_relative_path="conversa/lib" type="c_include"/>
