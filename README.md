@@ -2,7 +2,7 @@
 [<img src="https://mcuxpresso.nxp.com/static/icon/nxp-logo-color.svg" width="100"/>](https://www.nxp.com)
 
 ## Conversa Voice Calling
-This project holds the <a href="https://www.nxp.com/design/software/embedded-software/application-software-packs/application-software-pack-conversa-voice-calling:APP-SW-PACK-CONVERSA-VOICE">Conversa Voice Calling App SW Pack</a>.<br />This application software pack enables a complete voice call application over USB using NXP’s MCU and <a href="https://www.nxp.com/design/software/embedded-software/conversa-voice-suite:CONVERSA-VOICE-SUITE">Conversa Voice Suite</a>. <br />This project speeds up the evaluation of Voice over Internet Protocol (VoIP) products and provides sufficient audio quality required to meet the Microsoft Teams specification and receive certification.<br /><br />The ```main_rt1170``` branch contains the conversa voice calling software pack for the <a href="https://www.nxp.com/design/development-boards/i-mx-evaluation-and-development-boards/i-mx-rt1170-evaluation-kit:MIMXRT1170-EVK">i.MX RT1170</a>.<br />The ```main_lpc55``` branch branch contains the conversa voice calling software pack for the <a href="https://www.nxp.com/design/software/development-software/mcuxpresso-software-and-tools-/lpcxpresso-boards/lpcxpresso55s69-development-board:LPC55S69-EVK">LPC55S69</a>.<br />To see other available devices, please check the other branches.<br /><br />
+This project holds the <a href="https://www.nxp.com/design/software/embedded-software/application-software-packs/application-software-pack-conversa-voice-calling:APP-SW-PACK-CONVERSA-VOICE">Conversa Voice Calling App SW Pack</a>.<br />This application software pack enables a complete voice call application over USB using NXP’s MCU and <a href="https://www.nxp.com/design/software/embedded-software/conversa-voice-suite:CONVERSA-VOICE-SUITE">Conversa Voice Suite</a>. <br />This project speeds up the evaluation of Voice over Internet Protocol (VoIP) products and provides sufficient audio quality required to meet the Microsoft Teams specification and receive certification.<br /><br />The ```main_rt1170``` branch contains the conversa voice calling software pack for the <a href="https://www.nxp.com/design/development-boards/i-mx-evaluation-and-development-boards/i-mx-rt1170-evaluation-kit:MIMXRT1170-EVK">i.MX RT1170</a>.<br />The ```main_lpc55```  branch contains the conversa voice calling software pack for the <a href="https://www.nxp.com/design/software/development-software/mcuxpresso-software-and-tools-/lpcxpresso-boards/lpcxpresso55s69-development-board:LPC55S69-EVK">LPC55S69</a>.<br />To see other available devices, please check the other branches.<br /><br />
 
 #### Boards: MIMXRT1170-EVK, LPCXpresso55S69
 #### Categories: Voice
@@ -18,7 +18,7 @@ This project holds the <a href="https://www.nxp.com/design/software/embedded-so
 ## 1. Resources<a name="step1"></a>
 To select the NXP platform running the Conversa Voice Calling SW pack, see the available branches in this repo:
 * The ```main_rt1170``` branch contains the conversa voice calling software pack for the i.MX RT1170.
-* The ```main_lpc55``` branch branch contains the conversa voice calling software pack for the LPC55S69.
+* The ```main_lpc55```  branch contains the conversa voice calling software pack for the LPC55S69.
 
 ## 2. FAQs<a name="step2"></a>
 
